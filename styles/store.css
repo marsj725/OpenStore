@@ -1,0 +1,38 @@
+* {
+ font-size: 17px;
+ font-family:verdana;
+
+}
+.page{
+	width:100%;
+	height:768px;
+	background-color: orange;
+}
+.recipe{
+	width:50%;
+	float: left;
+	background-color: navy;
+}
+.buy{
+	width:50%;
+	height:100%;
+	float: right;
+	background-color: pink;
+}
+.cart{
+	height:50px;
+	content:"";
+	margin-top:8px;
+	background-color: white;
+	opacity:0.9;
+
+	cursor:pointer;	
+}
+.contentLine0{
+	width:49%;
+	float: left;
+}
+.contentLine1{
+	width:49%;
+	float: right;
+}
