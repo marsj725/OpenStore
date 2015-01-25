@@ -1,2 +1,0 @@
-# OpenStore
-OpenStore project
