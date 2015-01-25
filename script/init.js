@@ -10,6 +10,7 @@ function setSettings(){
 	this.Width = 800;
 	this.base = "basePage";
 	this.startStore = 0;
+	this.valueSign = ":-";
 }
 
 function initBarSystem(){
@@ -37,12 +38,21 @@ function requestData(temp,key,has){
 		answerStores(temp,has);
 	}
 	if(temp.operation === "requestStoreItems"){
-		var temp = [
-			{"id":1,"type":0,"subType":0,"name":"Norrlands Guld Export","alcohol":5.3,"systemB":"1412","price":17},
-			{"id":2,"type":0,"subType":0,"name":"MarieStad","alcohol":5.3,"systemB":"1412","price":17},
-			{"id":3,"type":0,"subType":0,"name":"Norrlands Guld Export","alcohol":5.3,"systemB":"1412","price":17},
-			{"id":4,"type":0,"subType":0,"name":"Objekt 4:a","alcohol":5.3,"systemB":"1412","price":17},
-		];
+		if(key == 0){
+			var temp = [
+				{"id":1,"type":0,"subType":0,"name":"Norrlands Guld Export","alcohol":5.3,"systemB":"1412","price":17},
+				{"id":2,"type":0,"subType":0,"name":"MarieStad","alcohol":5.3,"systemB":"1412","price":17},
+				{"id":3,"type":0,"subType":0,"name":"Norrlands Guld Export","alcohol":5.3,"systemB":"1412","price":17},
+				{"id":4,"type":0,"subType":0,"name":"Objekt 4:a","alcohol":5.3,"systemB":"1412","price":17}
+			];
+		}else if(key == 1){
+			var temp = [
+				{"id":5,"type":1,"subType":0,"name":"RödTjutet","alcohol":15.3,"systemB":"1412","price":57},
+				{"id":6,"type":1,"subType":0,"name":"BagnBoxen","alcohol":17.1,"systemB":"1412","price":157}
+			];
+		}else{
+			var temp = [];
+		}
 		this.answ = answerInventory(temp,key,has);
 	}
 }
@@ -74,7 +84,7 @@ this.answerStores = function (retrivedData,has){
 this.answerInventory = function (retrivedData,store,has){
 	for(var keys in retrivedData){
 		var obj = retrivedData[keys];
-		has.sections.store[store].addItem(obj.name);
+		has.sections.store[store].addItem(obj.id,obj.name);
 	}
 }
 

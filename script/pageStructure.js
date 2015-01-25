@@ -2,6 +2,8 @@ function pageStructure(has){
 	this.pageRaw = [
 		{"type":"div","parent":has.settings.base,"id":"recipe","class":"recipe"},
 		{"type":"div","parent":has.settings.base,"id":"buy","class":"buy"},
+		{"type":"div","parent":has.settings.base,"id":"checkout","class":"checkout"},
+		{"type":"div","parent":"buy","id":"checkout","class":"store"},
 		{"type":"div","parent":"buy","id":"contentLine0","class":"contentLine0"},
 		{"type":"div","parent":"buy","id":"contentLine1","class":"contentLine1"},
 		{"type":"div","parent":"recipe","id":"x","class":"x"}
@@ -9,6 +11,24 @@ function pageStructure(has){
 }
 
 pageStructure.prototype.buildPage = function(barSystem){
+	var bodyElement = document.createElement("div");
+		bodyElement.setAttribute("id",barSystem.settings.base);
+		bodyElement.setAttribute("class","page");
+	document.body.appendChild(bodyElement);
+	var tmpx = document.getElementById(barSystem.settings.base);
+	$(tmpx).swipe({
+		swipe:function(event, direction, distance, duration, fingerCount){
+			if(direction==="left"){
+				barSystem.navigation.moveLeft(barSystem);
+			}else if(direction === "right"){
+				barSystem.navigation.moveRight(barSystem);
+			}else if (direction === "up"){
+				barSystem.navigation.moveUp(barSystem);
+			}else if (direction === "down"){
+				barSystem.navigation.moveDown(barSystem);
+			}
+		}
+	});
 	var structure = [];
 	for(var key in barSystem.pageStructure.pageRaw){
 		var tmpObj = barSystem.pageStructure.pageRaw[key];
@@ -16,17 +36,6 @@ pageStructure.prototype.buildPage = function(barSystem){
 		var element = document.getElementById(tmpObj.parent);
 		tmp.setAttribute("id", tmpObj.id);
 		tmp.setAttribute("class", tmpObj.class);
-		if(tmpObj.id==="buy"){
-			$(tmp).swipe({
-				swipe:function(event, direction, distance, duration, fingerCount){
-					if(direction==="left"){
-						barSystem.navigation.moveLeft(barSystem);
-					}else{
-						barSystem.navigation.moveRight(barSystem);
-					}
-		        }
-			});
-		}
 		element.appendChild(tmp);
 		structure[tmpObj.id] = document.getElementById(tmpObj.id);
 	}
@@ -36,12 +45,12 @@ pageStructure.prototype.buildPage = function(barSystem){
 pageStructure.prototype.buildStore = function(barSystem,store){
 	console.log("working on the store!")
 	var structure = [];
-	storeObj = barSystem.sections.store[store];
+	var storeObj = barSystem.sections.store[store];
 	document.getElementById("contentLine0").innerHTML = "";
 	document.getElementById("contentLine1").innerHTML = "";
-	for(var key in storeObj.inventory){
+	for(var key in barSystem.sections.store[store].inventory){
 		(function(that) {
-			var obj = barSystem.stockedItems.content[key];
+			var obj = barSystem.sections.store[store].inventory[key];
 			var modulo = key % 2;
 			var tmpElement = document.createElement("div");
 			var tmpInput = document.createTextNode(obj.name);

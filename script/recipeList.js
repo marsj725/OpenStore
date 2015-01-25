@@ -4,6 +4,7 @@ function recipeList(id,name,amount){
 		this.id = id;
 		this.name = name;
 		this.amount = amount;
+		this.cost = 0;
 	}
 }
 recipeList.prototype.updateList = function(barSystem){
