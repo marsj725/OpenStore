@@ -4,7 +4,7 @@ function store(id,name){
 	this.inventory = [];
 };
 
-store.prototype.addItem = function(id,name){
-	var object = new item(id,name);
+store.prototype.addItem = function(id,name,price){
+	var object = new item(id,name,price);
 	this.inventory.push(object);
 };

@@ -18,7 +18,6 @@ function initBarSystem(){
 	this.settings = new setSettings();
 	this.navigation = new navigation(this,0);
 	this.sections = new sections(this);
-	this.stockedItems = new fetchStockedItems();
 	this.pageStructure = new pageStructure(this);
 	this.webElements = [];
 	this.recipeList = new recipeList();
@@ -57,19 +56,6 @@ function requestData(temp,key,has){
 	}
 }
 
-function addToList(barSystem,id,name){
-
-}
-
-function fetchStockedItems(store){
-	this.content = [
-	{"id":1,"type":0,"subType":0,"name":"Norrlands Guld Export","alcohol":5.3,"systemB":"1412","price":17},
-	{"id":2,"type":0,"subType":0,"name":"MarieStad","alcohol":5.3,"systemB":"1412","price":17},
-	{"id":3,"type":0,"subType":0,"name":"Norrlands Guld Export","alcohol":5.3,"systemB":"1412","price":17},
-	{"id":4,"type":0,"subType":0,"name":"Objekt 4:a","alcohol":5.3,"systemB":"1412","price":17},
-	];
-}
-
 this.answerStores = function (retrivedData,has){
 	for(var key in retrivedData){
 		var obj = retrivedData[key];
@@ -84,7 +70,7 @@ this.answerStores = function (retrivedData,has){
 this.answerInventory = function (retrivedData,store,has){
 	for(var keys in retrivedData){
 		var obj = retrivedData[keys];
-		has.sections.store[store].addItem(obj.id,obj.name);
+		has.sections.store[store].addItem(obj.id,obj.name,obj.price);
 	}
 }
 

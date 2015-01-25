@@ -63,7 +63,7 @@ pageStructure.prototype.buildStore = function(barSystem,store){
 				$(tmpobj).finish()
 				$(tmpobj).fadeOut("fast");
 				$(tmpobj).fadeIn("fast");
-				that.recipeList.addToList(barSystem,obj.id,obj.name);
+				that.recipeList.addToList(barSystem,obj.id,obj.name,obj.price);
 				that.recipeList.updateList(that);
 			});
 			outelement.appendChild(tmpElement);
