@@ -36,6 +36,8 @@ recipeList.prototype.addToList = function(barSystem,id,name,price){
 	if(antal === 0){
 		barSystem.recipeList.list.push(new basketItem(id,name,1,price));
 	}
+	barSystem.recipeList.checkout(barSystem);
+
 };
 recipeList.prototype.removeFromList = function(barSystem,id,name,price){
 	var antal = 0;
@@ -51,4 +53,15 @@ recipeList.prototype.removeFromList = function(barSystem,id,name,price){
 			}
 		}
 	}
+	barSystem.recipeList.checkout(barSystem);
+};
+
+recipeList.prototype.checkout = function(barSystem){
+	var sum = 0;
+	for(var key in barSystem.recipeList.list){
+		var tmpobj = barSystem.recipeList.list[key];
+		sum += tmpobj.price * tmpobj.amount;
+	}
+	console.log(sum);
+	barSystem.webElements.page.checkout.innerHTML = sum;
 };
