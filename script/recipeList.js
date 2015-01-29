@@ -18,19 +18,27 @@ recipeList.prototype.updateList = function(barSystem){
 				tmpText.setAttribute("id", "add#"+obj.id);
 				tmpText.setAttribute("class", "cartText");
 				tmpText.appendChild(tmpInput);
+				tmpText.addEventListener("click", function(){
+				var tmpobj = document.getElementById("itexm#"+keyx);
+					$(tmpobj).finish()
+					$(tmpobj).fadeOut("fast");
+					$(tmpobj).fadeIn("fast");
+					that.recipeList.addToList(barSystem,obj.id,obj.name,obj.price);
+					that.recipeList.updateList(that);
+				});
 				tmpElement.appendChild(tmpText);
 			var tmpRmv = document.createElement("div");
 				tmpRmv.setAttribute("id", "remove#"+obj.id);
 				tmpRmv.setAttribute("class", "cartRemove");
+				tmpRmv.addEventListener("click", function(){
+				var tmpobj = document.getElementById("itexm#"+keyx);
+					$(tmpobj).finish()
+					$(tmpobj).fadeOut("fast");
+					$(tmpobj).fadeIn("fast");
+					that.recipeList.removeFromList(barSystem,obj.id,obj.name,obj.price);
+					that.recipeList.updateList(that);
+				});
 				tmpElement.appendChild(tmpRmv);
-			tmpElement.addEventListener("click", function(){
-			var tmpobj = document.getElementById("itexm#"+keyx);
-				$(tmpobj).finish()
-				$(tmpobj).fadeOut("fast");
-				$(tmpobj).fadeIn("fast");
-				that.recipeList.removeFromList(barSystem,obj.id,obj.name,obj.price);
-				that.recipeList.updateList(that);
-			});
 			barSystem.webElements.page.recipe.appendChild(tmpElement);
 		}(barSystem));
 	}
@@ -67,6 +75,10 @@ recipeList.prototype.removeFromList = function(barSystem,id,name,price){
 		}
 	}
 	barSystem.recipeList.checkout(barSystem);
+};
+
+recipeList.prototype.clearAll = function(barSystem){
+	barSystem.recipeList = [];
 };
 
 recipeList.prototype.checkout = function(barSystem){
