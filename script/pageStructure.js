@@ -3,6 +3,9 @@ function pageStructure(has){
 		{"type":"div","parent":has.settings.base,"id":"recipe","class":"recipe"},
 		{"type":"div","parent":has.settings.base,"id":"buy","class":"buy"},
 		{"type":"div","parent":has.settings.base,"id":"checkout","class":"checkout"},
+		{"type":"div","parent":"checkout","id":"sumfield","class":"sumfield"},
+		{"type":"div","parent":"checkout","id":"checkoutBtn","class":"checkoutButton"},
+		{"type":"div","parent":"checkout","id":"clearBtn","class":"clearButton"},
 		{"type":"div","parent":"buy","id":"contentLine0","class":"contentLine0"},
 		{"type":"div","parent":"buy","id":"contentLine1","class":"contentLine1"},
 		{"type":"div","parent":"recipe","id":"x","class":"x"}

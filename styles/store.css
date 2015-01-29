@@ -44,6 +44,7 @@ body{
 }
 .cart{
 	height:50px;
+	width:100%;
 	content:"";
 	margin-top:8px;
 	background-color: white;
@@ -57,4 +58,49 @@ body{
 .contentLine1{
 	width:49%;
 	float: right;
+}
+.cartItem{
+	height:50px;
+	width:100%;
+	margin-top:8px;
+	background-color: white;
+	position: relative;
+	display: flex;
+}
+.cartAdd{
+	height: 50px;
+	width:5%;
+	content: "";
+	background-color: lime;
+	opacity: 0.9;
+	cursor: pointer;
+}
+.cartText{
+	height: 50px;
+	width: 85%;
+	content: "";
+	opacity: 0.9;
+	cursor: pointer;
+}
+.cartRemove{
+	height:50px;
+	width: 15%;
+	content: "";
+	background-color: red;
+	opacity: 0.9;
+	cursor: pointer;
+}
+.add{
+	width:80%;
+	height:25%;
+	background-color: purple;
+	position: relative;
+	top:0px;left:0px;
+}
+.add:after{
+	width:100%;
+	height:25%;
+	background-color: yellow;
+	position: relative;
+	top:0px;left:0px;
 }

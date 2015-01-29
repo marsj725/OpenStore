@@ -8,11 +8,23 @@ recipeList.prototype.updateList = function(barSystem){
 			var obj = barSystem.recipeList.list[keyx];
 			var tmpElement = document.createElement("div");
 			var tmpInput = document.createTextNode(obj.name + " " + obj.amount+ "st.");
-			tmpElement.appendChild(tmpInput);
 			tmpElement.setAttribute("id", "itexm#"+keyx);
-			tmpElement.setAttribute("class", "cart");
+			tmpElement.setAttribute("class", "cartItem");
+			var tmpAdd = document.createElement("div");
+				tmpAdd.setAttribute("id", "add#"+obj.id);
+				tmpAdd.setAttribute("class", "cartAdd minus");
+				tmpElement.appendChild(tmpAdd);
+			var tmpText = document.createElement("div");
+				tmpText.setAttribute("id", "add#"+obj.id);
+				tmpText.setAttribute("class", "cartText");
+				tmpText.appendChild(tmpInput);
+				tmpElement.appendChild(tmpText);
+			var tmpRmv = document.createElement("div");
+				tmpRmv.setAttribute("id", "remove#"+obj.id);
+				tmpRmv.setAttribute("class", "cartRemove");
+				tmpElement.appendChild(tmpRmv);
 			tmpElement.addEventListener("click", function(){
-				var tmpobj = document.getElementById("itexm#"+keyx);
+			var tmpobj = document.getElementById("itexm#"+keyx);
 				$(tmpobj).finish()
 				$(tmpobj).fadeOut("fast");
 				$(tmpobj).fadeIn("fast");
@@ -23,6 +35,7 @@ recipeList.prototype.updateList = function(barSystem){
 		}(barSystem));
 	}
 };
+
 recipeList.prototype.addToList = function(barSystem,id,name,price){
 	var antal = 0;
 	var cost = 0;
@@ -37,8 +50,8 @@ recipeList.prototype.addToList = function(barSystem,id,name,price){
 		barSystem.recipeList.list.push(new basketItem(id,name,1,price));
 	}
 	barSystem.recipeList.checkout(barSystem);
-
 };
+
 recipeList.prototype.removeFromList = function(barSystem,id,name,price){
 	var antal = 0;
 	var cost = 0;
@@ -63,5 +76,5 @@ recipeList.prototype.checkout = function(barSystem){
 		sum += tmpobj.price * tmpobj.amount;
 	}
 	console.log(sum);
-	barSystem.webElements.page.checkout.innerHTML = sum;
+	barSystem.webElements.page.sumfield.innerHTML = sum;
 };
