@@ -15,15 +15,20 @@
 	height:10%;
 	position: relative;
 	display: flex;
-	background-color: black;
+	background-color: silver;
     position: absolute; bottom:0px; left:0px;
 
     z-index: 6;
 }
 .sumfield{
 	width:70%;
-	height:100%;
-	background-color: silver;
+	height:50%;
+	font-size: 4vh;
+	margin-top: 2.5vh;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	border: 2px solid black;
+	border-style:dotted;
 
 }
 .checkoutButton{
