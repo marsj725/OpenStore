@@ -20,9 +20,12 @@ function initBarSystem(){
 	this.sections = new sections(this);
 	this.pageStructure = new pageStructure(this);
 	this.webElements = [];
+	this.exchange = new exchange(this);
 	this.recipeList = new recipeList();
 	this.basketItem = new basketItem();
 	this.sells = [];
+
+	this.exchange.calculateChange(this,2678);
 
 	this.dataRequests = function(){
 		var temp = {"operation":"requestStores"};
