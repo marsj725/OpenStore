@@ -4,9 +4,10 @@
 <link href='styles/store.css' rel='stylesheet' type='text/css'>
 <link href='styles/helpBar.css' rel='stylesheet' type='text/css'>
 	<title>
-			--[]--
+			--[loading]--
 	</title>
 	<script src='script/jquery.js'></script>
+	<script src='script/md5.min.js'></script>
 	<script src='script/touchSwipe.js'></script>
 	<script src='script/basket.js'></script>
 	<script src='script/dataManager.js'></script>
@@ -21,15 +22,12 @@
 	<script src='script/recipeList.js'></script>
 	<script src='script/item.js'></script>
 	<script type="text/javascript">
-		var baren = new initBarSystem();
+		var store = new init();
 		$( document ).ready(function() {
-			generatePage(baren);
+			generatePage(store);
 		});
 	</script>
-
 </head>
-
 <body>
-
 </body>
 </html>

@@ -1,17 +1,6 @@
 function exchange(system){
 	this.currencySymbol = system.settings.valueSign;
-	this.values = [
-					1000,
-					500,
-					200,
-					100,
-					50,
-					20,
-					10,
-					5,
-					2,
-					1
-	];
+	this.values = system.settings.values;
 	this.exchange = [];
 }
 exchange.prototype.calculateChange = function(system,money){
@@ -26,6 +15,30 @@ exchange.prototype.calculateChange = function(system,money){
 		}
 	}
 };
+
+exchange.prototype.drawExchange = function(system){
+	var outelement = document.getElementById("helpBar");
+	var counter = 0;
+		outelement.innerHTML = "";
+	var element = document.createElement("div");
+		element.setAttribute("id", "valueCalculator");
+		element.setAttribute("class", "valueCalculator");
+	for(var key in system.exchange.values){
+		(function(that){
+			if(counter)
+			var obj = system.exchange.values[key];
+			var tmpElement = document.createElement("div");
+				tmpElement.setAttribute("id", "excBtn#"+obj);
+				tmpElement.setAttribute("class", "valueButton");
+				tmpElement.addEventListener("click", function(){
+
+				});
+			element.appendChild(tmpElement);
+			counter++;
+		}(system));
+	}
+	outelement.appendChild(element);
+}
 
 function removeExchange(input,remove){
 	if((input - remove)>=0){

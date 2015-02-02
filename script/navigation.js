@@ -1,4 +1,4 @@
-function navigation(barsystem,x){
+function navigation(system,x){
 	this.position = x;
 	this.helpBar = false;
 
@@ -7,7 +7,7 @@ navigation.prototype.moveLeft = function(that){
 	if(that.navigation.position>=1){
 		that.navigation.position -=1;
 		that.webElements.bar = that.pageStructure.buildStore(that,that.navigation.position);
-		console.log("movingLeft to store " + that.navigation.position);
+		console.log("movingLeft to store " + that.navigation.position +md5("hejsan"));
 	}
 };
 
@@ -19,18 +19,16 @@ navigation.prototype.moveRight = function(that){
 	}
 };
 
-navigation.prototype.moveUp = function(that){
-	if(that.navigation.helpBar){
-		console.log("showing exchange helpBar");
-	}else{
-		console.log("showing *(hidden) exchange helpBar");
+navigation.prototype.moveUp = function(system){
+	if(!system.navigation.helpBar){
 		var tmpElement = document.createElement("div");
-		var pageBase = document.getElementById(that.settings.base);
+		var pageBase = document.getElementById(system.settings.base);
 		tmpElement.setAttribute("id", "helpBar");
 		tmpElement.setAttribute("class", "helpBar");
 		tmpElement.setAttribute("zIndex", "3");
 		pageBase.appendChild(tmpElement);
-		that.navigation.helpBar = true;
+		system.navigation.helpBar = true;
+		system.exchange.calculateChange(system,system.recipeList.sum);
 	}
 };
 navigation.prototype.moveDown = function(that){

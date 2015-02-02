@@ -10,29 +10,58 @@ function pageStructure(has){
 		{"type":"div","parent":"buy","id":"contentLine1","class":"contentLine1","action":false},
 		{"type":"div","parent":"recipe","id":"x","class":"x","action":false}
 		];
+	this.loginRaw = [
+		{"type":"div","parent":has.settings.base,"id":"none","class":"none","action":false}
+		];
 }
 
-pageStructure.prototype.buildPage = function(barSystem){
+pageStructure.prototype.buildLogin = function(system){
 	var bodyElement = document.createElement("div");
-		bodyElement.setAttribute("id",barSystem.settings.base);
+		bodyElement.setAttribute("id",system.settings.base);
 		bodyElement.setAttribute("class","page");
 	document.body.appendChild(bodyElement);
-	var tmpx = document.getElementById(barSystem.settings.base);
+	var structure = [];
+	for(var key in system.pageStructure.loginRaw){
+		(function(that){
+			var tmpObj = that.pageStructure.loginRaw[key];
+			var tmp = document.createElement(tmpObj.type);
+			var element = document.getElementById(tmpObj.parent);
+			tmp.setAttribute("id", tmpObj.id);
+			tmp.setAttribute("class", tmpObj.class);
+			if(tmpObj.action){
+					tmp.addEventListener("click", function(){
+					var funkt = window[tmpObj.action];
+					if (typeof funkt === "function") funkt(that);
+					});
+			}
+			element.appendChild(tmp);
+			structure[tmpObj.id] = document.getElementById(tmpObj.id);
+		}(system));
+	}
+	return structure;
+};
+
+pageStructure.prototype.buildPage = function(system){
+	var bodyElement = document.createElement("div");
+		bodyElement.setAttribute("id",system.settings.base);
+		bodyElement.setAttribute("class","page");
+	document.body.appendChild(bodyElement);
+	var tmpx = document.getElementById(system.settings.base);
 	$(tmpx).swipe({
 		swipe:function(event, direction, distance, duration, fingerCount){
 			if(direction==="left"){
-				barSystem.navigation.moveLeft(barSystem);
+				system.navigation.moveLeft(system);
 			}else if(direction === "right"){
-				barSystem.navigation.moveRight(barSystem);
+				system.navigation.moveRight(system);
 			}else if (direction === "up"){
-				barSystem.navigation.moveUp(barSystem);
+				system.navigation.moveUp(system);
 			}else if (direction === "down"){
-				barSystem.navigation.moveDown(barSystem);
+				system.navigation.moveDown(system);
 			}
 		}
 	});
 	var structure = [];
-	for(var key in barSystem.pageStructure.pageRaw){
+	for(var key in system.pageStructure.pageRaw){
 		(function(that){
 			var tmpObj = that.pageStructure.pageRaw[key];
 			var tmp = document.createElement(tmpObj.type);
@@ -47,21 +76,21 @@ pageStructure.prototype.buildPage = function(barSystem){
 			}
 			element.appendChild(tmp);
 			structure[tmpObj.id] = document.getElementById(tmpObj.id);
-		}(barSystem));
+		}(system));
 	}
 	return structure;
 };
 
-pageStructure.prototype.buildStore = function(barSystem,store){
+pageStructure.prototype.buildStore = function(system,store){
 	$(document.getElementById("contentLine0")).hide();
 	$(document.getElementById("contentLine1")).hide();
 	var structure = [];
-	var storeObj = barSystem.sections.store[store];
+	var storeObj = system.sections.store[store];
 	document.getElementById("contentLine0").innerHTML = "";
 	document.getElementById("contentLine1").innerHTML = "";
-	for(var key in barSystem.sections.store[store].inventory){
+	for(var key in system.sections.store[store].inventory){
 		(function(that) {
-			var obj = barSystem.sections.store[store].inventory[key];
+			var obj = system.sections.store[store].inventory[key];
 			var modulo = key % 2;
 			var tmpElement = document.createElement("div");
 			var tmpInput = document.createTextNode(obj.name);
@@ -74,12 +103,12 @@ pageStructure.prototype.buildStore = function(barSystem,store){
 				$(tmpobj).finish()
 				$(tmpobj).hide();
 				$(tmpobj).fadeIn("medium");
-				that.recipeList.addToList(barSystem,obj.id,obj.name,obj.price);
+				that.recipeList.addToList(system,obj.id,obj.name,obj.price);
 				that.recipeList.updateList(that);
 			});
 			outelement.appendChild(tmpElement);
 			structure[key] = document.getElementById("item#"+obj.id);
-		}(barSystem));
+		}(system));
 	}
 	$(document.getElementById("contentLine0")).fadeIn("slow");
 	$(document.getElementById("contentLine1")).fadeIn("slow");

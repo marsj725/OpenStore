@@ -1,5 +1,5 @@
 * {
-	font-size: 2vh;
+	font-size: 1vh;
  font-family:verdana;
 
 }
@@ -15,7 +15,7 @@ body{
 }
 @media only screen and (max-width: 520px) {
 
-	cartText { font-size: 4vm; }
+	cartText { font-size: 4vh; }
 
 }
 .page{
@@ -50,10 +50,11 @@ body{
 	background-color: lime;
 }
 .cart{
-	height:50px;
+	height:5vh;
 	width:100%;
 	content:"";
 	margin-top: 1vh;
+	font-size: 1vw;
 	background-color: white;
 	opacity:0.9;
 	cursor:pointer;	

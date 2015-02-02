@@ -43,3 +43,13 @@
 	background-color: red;
 	cursor: pointer;
 }
+.valueCalculator{
+	width: 50%;
+	display: flex;
+}
+.valueButton{
+	height: 5vh;
+	width: 20vw;
+	background-color: pink;
+	margin-top: 1vh;
+}
