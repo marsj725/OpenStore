@@ -11,7 +11,10 @@ function pageStructure(has){
 		{"type":"div","parent":"recipe","id":"x","class":"x","action":false}
 		];
 	this.loginRaw = [
-		{"type":"div","parent":has.settings.base,"id":"none","class":"none","action":false}
+		{"type":"div","parent":has.settings.base,"id":"loginField","class":"login","action":false},
+		{"type":"input","parent":"loginField","id":"user","class":"field","action":false},
+		{"type":"input","parent":"loginField","id":"paswd","class":"field","action":false},
+		{"type":"button","parent":"loginField","id":"submit","class":"button","action":"loginSquence"}
 		];
 }
 
@@ -114,6 +117,12 @@ pageStructure.prototype.buildStore = function(system,store){
 	$(document.getElementById("contentLine1")).fadeIn("slow");
 	return structure;
 };
+
+function loginSquence(system){
+	var usr = document.getElementById("user").value;
+	var pswd = document.getElementById("paswd").value;
+	system.account.verification(system,usr,paswd);
+}
 
 function clearLocal(system){
 	system.recipeList.clearAll(system);

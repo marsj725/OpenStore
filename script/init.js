@@ -41,6 +41,7 @@ function generatePage(system){
 		system.webElements.bar = new system.pageStructure.buildStore(system,system.settings.startStore);
 	}else{
 		system.webElements.login = new system.pageStructure.buildLogin(system);
+		//system.account.verification(system,"martin","paswd");
 	}
 			
 }

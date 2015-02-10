@@ -1,0 +1,14 @@
+.login{
+	height:100%;
+	width:50%;
+	background-color: black;
+}
+.field{
+	height:50%;
+	width:25%;
+	background-color: gold;
+	content: "";
+}
+.button{
+	content: "login";
+}
