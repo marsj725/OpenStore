@@ -3,17 +3,19 @@ function pageStructure(has){
 		{"type":"div","parent":has.settings.base,"id":"recipe","class":"recipe","action":false},
 		{"type":"div","parent":has.settings.base,"id":"buy","class":"buy","action":false},
 		{"type":"div","parent":has.settings.base,"id":"checkout","class":"checkout","action":false},
+		{"type":"div","parent":has.settings.base,"id":"status","class":"status","action":false},
 		{"type":"div","parent":"checkout","id":"sumfield","class":"sumfield","action":false},
 		{"type":"div","parent":"checkout","id":"checkoutBtn","class":"checkoutButton","action":false},
 		{"type":"div","parent":"checkout","id":"clearBtn","class":"clearButton","action":"clearLocal"},
+		{"type":"div","parent":"status","id":"special","class":"special","action":"logout"},
 		{"type":"div","parent":"buy","id":"contentLine0","class":"contentLine0","action":false},
 		{"type":"div","parent":"buy","id":"contentLine1","class":"contentLine1","action":false},
 		{"type":"div","parent":"recipe","id":"x","class":"x","action":false}
 		];
 	this.loginRaw = [
 		{"type":"div","parent":has.settings.base,"id":"loginField","class":"login","action":false},
-		{"type":"input","parent":"loginField","id":"user","class":"field","action":false},
-		{"type":"input","parent":"loginField","id":"paswd","class":"field","action":false},
+		{"type":"input","subType":"input","parent":"loginField","id":"user","class":"field","action":false},
+		{"type":"input","subType":"password","parent":"loginField","id":"paswd","class":"field","action":false},
 		{"type":"button","parent":"loginField","id":"submit","class":"button","action":"loginSquence"}
 		];
 }
@@ -28,6 +30,9 @@ pageStructure.prototype.buildLogin = function(system){
 		(function(that){
 			var tmpObj = that.pageStructure.loginRaw[key];
 			var tmp = document.createElement(tmpObj.type);
+			if(tmpObj.type==="input"){
+				tmp.setAttribute("type", tmpObj.subType);
+			}
 			var element = document.getElementById(tmpObj.parent);
 			tmp.setAttribute("id", tmpObj.id);
 			tmp.setAttribute("class", tmpObj.class);
@@ -122,8 +127,13 @@ function loginSquence(system){
 	var usr = document.getElementById("user").value;
 	var pswd = document.getElementById("paswd").value;
 	system.account.verification(system,usr,paswd);
+	system.account.outputUser(system);
 }
 
 function clearLocal(system){
 	system.recipeList.clearAll(system);
+}
+
+function logout(system){
+	system.account.logout(system);
 }

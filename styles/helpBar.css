@@ -11,13 +11,25 @@
 .checkout{
 	color: white;
 	font-size: 24px;
-	width:100%;
+	width:50%;
 	height:10%;
 	position: relative;
 	display: flex;
 	background-color: silver;
+	border-top:2px solid gray;
     position: absolute; bottom:0px; left:0px;
-
+    z-index: 6;
+}
+.status{
+	color: white;
+	font-size: 24px;
+	width:50%;
+	height:10%;
+	position: relative;
+	display: flex;
+	background-color: gold;
+	border-top:2px solid gray;
+    position: absolute; bottom:0px; left:50%;
     z-index: 6;
 }
 .sumfield{
@@ -36,6 +48,9 @@
 	height:100%;
 	background-color: green;
 
+}
+.special{
+	width:100%;
 }
 .clearButton{
 	width:15%;

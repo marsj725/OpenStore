@@ -32,7 +32,8 @@ body{
 	min-height:100%;
 	overflow: auto;
 	margin-right: 0.01vw;
-	border-right: 0.01vw solid black;
+	border-right: 2px solid gray;
+	background: rgba(100, 100, 100, 0.5);
 	height: auto;
 }
 .buy{
@@ -60,11 +61,13 @@ body{
 	cursor:pointer;	
 }
 .contentLine0{
-	width:49%;
+	width:48%;
+	margin-left: 0.5vw;
 	float: left;
 }
 .contentLine1{
-	width:49%;
+	width:48%;
+	margin-right: 0.5vw;
 	float: right;
 }
 .cartItem{

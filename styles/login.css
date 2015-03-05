@@ -1,14 +1,27 @@
 .login{
-	height:100%;
+	height:50%;
 	width:50%;
-	background-color: black;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: middle;
+	background-color: white;
+	border:2px solid gray;
 }
 .field{
 	height:50%;
-	width:25%;
+	width:75%;
+	margin-right: auto;
+	margin-left: auto;
 	background-color: gold;
+	font-size: 2vw;
 	content: "";
 }
 .button{
+	height:25%;
+	width:25%;
+	margin-right: auto;
+	margin-left: auto;
 	content: "login";
 }

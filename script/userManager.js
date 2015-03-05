@@ -1,5 +1,4 @@
 function login(){
-
 		this.user = "";
 		this.name = "";
 		this.token = "";
@@ -16,14 +15,32 @@ login.prototype.verification = function(system,user,password){
 		system.account.name = answer.name;
 		document.body.innerHTML = "";
 		generatePage(system);
-		localStorage.account = {"user":system.account.user,"token":system.account.token};
+		localStorage.token = system.account.token;
+		localStorage.user = system.account.user;
+		localStorage.name = system.account.name;
 	}
 };
 
 login.prototype.logout = function(system){
-	system.user = "";
-	system.name = "";
-	system.token = "";
+	system.account.user = "";
+	system.account.name = "";
+	system.account.token = "";
+	localStorage.removeItem("token");
+	localStorage.removeItem("user");
+	localStorage.removeItem("name");
 	document.body.innerHTML = "";
 	generatePage(system);
+	console.log("page is cleared!");
+}
+
+login.prototype.setAccountFromCache = function(system){
+	system.account.token = localStorage.token;
+	system.account.user = localStorage.user;
+	system.account.name = localStorage.name;
+
+}
+
+login.prototype.outputUser = function(system){
+	system.webElements.page.status.innerHTML = system.account.name;
+	console.log(system.account.name);
 }
