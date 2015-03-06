@@ -5,7 +5,7 @@
 
 function setSettings(){
 	this.name = "OpenStore";
-	this.serverAdress = "none";
+	this.serverAdress = "server.html";
 	this.base = "basePage";
 	this.startStore = 0;
 
@@ -39,7 +39,7 @@ function generatePage(system){
 	if(localStorage.getItem("token")){
 		system.account.setAccountFromCache(system);
 		system.webElements.page = new system.pageStructure.buildPage(system);
-		system.webElements.bar = new system.pageStructure.buildStore(system,system.settings.startStore);
+		//system.webElements.store = new system.pageStructure.buildStore(system,system.settings.startStore);
 	}else{
 		system.webElements.login = new system.pageStructure.buildLogin(system);
 	}

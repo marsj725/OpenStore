@@ -21,6 +21,7 @@ function pageStructure(has){
 }
 
 pageStructure.prototype.buildLogin = function(system){
+	document.body.innerHTML = "";
 	var bodyElement = document.createElement("div");
 		bodyElement.setAttribute("id",system.settings.base);
 		bodyElement.setAttribute("class","page");
@@ -50,6 +51,7 @@ pageStructure.prototype.buildLogin = function(system){
 };
 
 pageStructure.prototype.buildPage = function(system){
+	document.body.innerHTML = "";
 	var bodyElement = document.createElement("div");
 		bodyElement.setAttribute("id",system.settings.base);
 		bodyElement.setAttribute("class","page");
