@@ -34,6 +34,7 @@ body{
 	margin-right: 0.01vw;
 	border-right: 2px solid gray;
 	background: rgba(100, 100, 100, 0.5);
+	position: relative; top: 5%;
 	height: auto;
 }
 .buy{
@@ -42,6 +43,7 @@ body{
 	overflow: auto;
 	margin-left: 0.01vw;
 	border-left: 0.01vw solid black;
+	position: relative; top: 5%;
 	height: auto;
 }
 .store{
@@ -100,9 +102,16 @@ body{
 	height:50px;
 	width: 15%;
 	content: "";
-	background-color: red;
+	background-color: #CC0033;
 	opacity: 0.9;
 	cursor: pointer;
+}
+.cartRemove:before{
+	background-color:#000000;
+	width: 4vw;
+	height: 3vh;
+	margin-left: 1.3vw;
+	content: "strings";
 }
 .add{
 	width:80%;

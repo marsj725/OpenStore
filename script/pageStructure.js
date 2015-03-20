@@ -4,6 +4,7 @@ function pageStructure(has){
 		{"type":"div","parent":has.settings.base,"id":"buy","class":"buy","action":false},
 		{"type":"div","parent":has.settings.base,"id":"checkout","class":"checkout","action":false},
 		{"type":"div","parent":has.settings.base,"id":"status","class":"status","action":false},
+		{"type":"div","parent":has.settings.base,"id":"navigationField","class":"navigationField","action":false},
 		{"type":"div","parent":"checkout","id":"sumfield","class":"sumfield","action":false},
 		{"type":"div","parent":"checkout","id":"checkoutBtn","class":"checkoutButton","action":false},
 		{"type":"div","parent":"checkout","id":"clearBtn","class":"clearButton","action":"clearLocal"},
