@@ -39,9 +39,9 @@
 	margin-top: 2.5vh;
 	margin-left: 1vw;
 	margin-right: 1vw;
+	padding-left: 0.25vw;
 	border: 2px solid black;
 	border-style:dotted;
-
 }
 .checkoutButton{
 	width:15%;
@@ -50,7 +50,12 @@
 
 }
 .special{
-	width:100%;
+	width:50%;
+}
+.signOut{
+	width:50%;
+	background-color: darkred;
+	cursor: pointer;
 }
 .clearButton{
 	width:15%;

@@ -3,25 +3,46 @@
 	width:50%;
 	display: flex;
 	flex-direction: column;
+	margin-top: auto;
+	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;
 	vertical-align: middle;
-	background-color: white;
-	border:2px solid gray;
+	background: rgba(255, 255, 255, .75);
+	box-shadow: inset 0 0 5px #888888;
+	border:2px solid #888888;
+    border-radius: 8px;
 }
-.field{
-	height:50%;
+.title{
+	height:25%;
 	width:75%;
 	margin-right: auto;
 	margin-left: auto;
-	background-color: gold;
+	font-size: 2vw;
+	content: "";
+}
+.field{
+	height:8vh;
+	width:75%;
+	margin-top: 1vh;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 1vw;
+	background-color: white;
+	border:2px solid gray;
+	border-radius: 8px;
 	font-size: 2vw;
 	content: "";
 }
 .button{
 	height:25%;
 	width:25%;
+	margin-top: 1vh;
 	margin-right: auto;
 	margin-left: auto;
-	content: "login";
+	background-color: #00CC99;
+	border:2px solid #006633;
+	box-shadow: inset 0 0 5px #888888;
+	border-radius: 8px;
+	cursor: pointer;
 }

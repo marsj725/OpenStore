@@ -4,15 +4,14 @@ function setStores(){
 }
 
 function xmlHTTPConnection(system,ticket,data){
-	var xmlhttp = new XMLHttpRequest();
+	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var answer = JSON.parse(xmlhttp.responseText);
 			var funkt = window[answer.operation];
 			if (typeof funkt === "function") {
-				funkt(system,data)
+				funkt(system,answer);
 			}
-			console.log(answer);
 		}
 	}
 	xmlhttp.open("GET", system.settings.serverAdress, true);
@@ -20,17 +19,15 @@ function xmlHTTPConnection(system,ticket,data){
 }
 
 function setStores(system,data){
-	//addStore(system,data.stores);
-	//addItem(system,data.items);
 
+	addStore(system,data.stores);
+	addItem(system,data.items);
+	generateStore(system);
 }
 
 function requestData(system,temp){
 	if(temp.operation === "requestStore"){
-	console.log("requesting data");
 		xmlHTTPConnection(system,"hej","korv");
-	//	addStore(system,data.stores);
-	//	addItem(system,data.items);
 	}
 	if(temp.operation === "usrvf"){
 		var name = "Hejsan"
@@ -39,16 +36,17 @@ function requestData(system,temp){
 	}
 }
 
+function sendBasket(system){
+	
+}
+
 function addStore(system,input){
-	console.log("addstore");
 	for(var key in input){
 		var obj = input[key];
 		system.sections.addStore(obj.id,obj.name);		
 	}
 }
 function addItem(system,input){
-	console.log("additem");
-
 	for(var key in input){
 		var obj = input[key];
 		system.sections.store[obj.storeID].addItem(obj.id,obj.name,obj.price);

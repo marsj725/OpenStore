@@ -1,10 +1,10 @@
-function store(id,name){
-	this.id = id;
-	this.store = name;
+function Store(){
+	this.id;
+	this.store;
 	this.inventory = [];
-};
+}
 
-store.prototype.addItem = function(id,name,price){
+Store.prototype.addItem = function(id,name,price){
 	var object = new item(id,name,price);
 	this.inventory.push(object);
 };

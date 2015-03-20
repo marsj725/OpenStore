@@ -1,5 +1,5 @@
 * {
-	font-size: 1vh;
+	font-size: 1.3vw;
  font-family:verdana;
 
 }
@@ -51,11 +51,12 @@ body{
 	background-color: lime;
 }
 .cart{
-	height:5vh;
+	height:50px;
 	width:100%;
 	content:"";
 	margin-top: 1vh;
-	font-size: 1vw;
+	font-size: 1.3vw;
+	padding-left: 0.25vw;
 	background-color: white;
 	opacity:0.9;
 	cursor:pointer;	
@@ -73,8 +74,10 @@ body{
 .cartItem{
 	height:50px;
 	width:100%;
-	margin-top: 1vh;
+	margin-top: 0.5vh;
 	position: relative;
+	border:0.25vh solid gray;
+	vertical-align: bottom;
 	display: flex;
 }
 .cartAdd{
@@ -86,10 +89,10 @@ body{
 	cursor: pointer;
 }
 .cartText{
-	height: 50px;
+	height: 100%;
 	width: 85%;
-	content: "";
 	background-color: white;
+	padding-left: 0.25vw;
 	opacity: 0.9;
 	cursor: pointer;
 }

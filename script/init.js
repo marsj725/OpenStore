@@ -1,6 +1,6 @@
 //#############################################
-// OpenStore v0.2 by Martin Sjödin Jonsson
-// 2015-02-02
+// OpenStore v0.3 by Martin Sjödin Jonsson
+// 2015-03-02
 //#############################################
 
 function setSettings(){
@@ -26,8 +26,7 @@ function init(){
 	document.title = this.settings.name;
 
 	this.dataRequests = function(){
-		var temp = {"operation":"requestStore"};
-		requestData(this,temp);
+
 	};
 
 	this.dataRequests();
@@ -39,9 +38,13 @@ function generatePage(system){
 	if(localStorage.getItem("token")){
 		system.account.setAccountFromCache(system);
 		system.webElements.page = new system.pageStructure.buildPage(system);
-		//system.webElements.store = new system.pageStructure.buildStore(system,system.settings.startStore);
+
+		var temp = {"operation":"requestStore"};
+		requestData(system,temp);
 	}else{
 		system.webElements.login = new system.pageStructure.buildLogin(system);
-	}
-			
+	}	
+}
+function generateStore(system){
+	system.webElements.store = new system.pageStructure.buildStore(system,system.settings.startStore);
 }

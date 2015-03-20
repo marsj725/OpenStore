@@ -30,6 +30,8 @@ login.prototype.logout = function(system){
 	system.recipeList.list = [];
 	system.recipeList.sum = 0;
 
+	system.sections.store = [];
+
 	localStorage.removeItem("token");
 	localStorage.removeItem("user");
 	localStorage.removeItem("name");
