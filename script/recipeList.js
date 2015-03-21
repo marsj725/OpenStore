@@ -22,10 +22,18 @@ recipeList.prototype.updateList = function(system){
 						$(tmpobj).hide();
 						$(tmpobj).fadeIn("medium");
 				});
-				tmpElement.appendChild(tmpAdd);
+				var tmpPlus = document.createElement("div");
+					tmpPlus.setAttribute("id", "plus#"+obj.id);
+					tmpPlus.setAttribute("class", "cartPlus");
+					tmpAdd.appendChild(tmpPlus);
+				var tmpPlus2 = document.createElement("div");
+					tmpPlus2.setAttribute("id", "plus2#"+obj.id);
+					tmpPlus2.setAttribute("class", "cartPlus2");
+					tmpAdd.appendChild(tmpPlus2);		
+			tmpElement.appendChild(tmpAdd);
 			var tmpText = document.createElement("div");
 				tmpText.setAttribute("id", "add#"+obj.id);
-				tmpText.setAttribute("class", "cartText");
+				tmpText.setAttribute("class", "cartContent");
 				tmpText.appendChild(tmpInput);
 				tmpText.addEventListener("click", function(){
 					that.recipeList.addToList(system,obj.id,obj.name,obj.price);
@@ -35,7 +43,7 @@ recipeList.prototype.updateList = function(system){
 						$(tmpobj).hide();
 						$(tmpobj).fadeIn("medium");
 				});
-				tmpElement.appendChild(tmpText);
+			tmpElement.appendChild(tmpText);
 			var tmpRmv = document.createElement("div");
 				tmpRmv.setAttribute("id", "remove#"+obj.id);
 				tmpRmv.setAttribute("class", "cartRemove");
@@ -47,6 +55,10 @@ recipeList.prototype.updateList = function(system){
 						$(tmpobj).hide();
 						$(tmpobj).fadeIn("medium");
 					});
+			var tmpMinus = document.createElement("div");
+				tmpMinus.setAttribute("id", "minud#"+obj.id);
+				tmpMinus.setAttribute("class", "cartMinus");
+			tmpRmv.appendChild(tmpMinus);	
 			tmpElement.appendChild(tmpRmv);
 			system.webElements.page.recipe.appendChild(tmpElement);
 		}(system));

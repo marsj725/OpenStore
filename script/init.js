@@ -47,4 +47,5 @@ function generatePage(system){
 }
 function generateStore(system){
 	system.webElements.store = new system.pageStructure.buildStore(system,system.settings.startStore);
+	system.navigation.updateVisual(system);
 }

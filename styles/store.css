@@ -25,6 +25,10 @@ body{
 	display: flex;
 	overflow: hidden;
 	z-index: :1;
+	background-image: url("../gfx/logo.png");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 	background-color: #BBFFD1;
 }
 .recipe{
@@ -32,7 +36,7 @@ body{
 	min-height:100%;
 	overflow: auto;
 	margin-right: 0.01vw;
-	border-right: 2px solid gray;
+	border-right: 1px solid gray;
 	background: rgba(100, 100, 100, 0.5);
 	position: relative; top: 5%;
 	height: auto;
@@ -42,7 +46,7 @@ body{
 	min-height:100%;
 	overflow: auto;
 	margin-left: 0.01vw;
-	border-left: 0.01vw solid black;
+	border-left: 1px solid gray;
 	position: relative; top: 5%;
 	height: auto;
 }
@@ -78,7 +82,7 @@ body{
 	width:100%;
 	margin-top: 0.5vh;
 	position: relative;
-	border:0.25vh solid gray;
+
 	vertical-align: bottom;
 	display: flex;
 }
@@ -86,44 +90,58 @@ body{
 	height: 50px;
 	width:5%;
 	content: "";
-	background-color: lime;
-	opacity: 0.9;
+	background: linear-gradient(to right, rgba(200,255,200,.8), rgba(255,255,255,0.8));
+	border-top: 2px solid rgba(100,175,100,0.9);
+	border-bottom: 2px solid rgba(100,175,100,0.9);
+	cursor: pointer;
+}
+.cartContent{
+	height: 100%;
+	width: 85%;
+	background: rgba(255,255,255,.8);
+	border-top: 2px solid gray;
+	border-bottom: 2px solid gray;
+	vertical-align:middle;
 	cursor: pointer;
 }
 .cartText{
 	height: 100%;
 	width: 85%;
-	background-color: white;
-	padding-left: 0.25vw;
-	opacity: 0.9;
+	background: rgba(255,255,255,.8);
+	border-top: 2px solid gray;
+	border-bottom: 2px solid gray;
+	vertical-align:middle;
 	cursor: pointer;
 }
 .cartRemove{
 	height:50px;
-	width: 15%;
-	content: "";
-	background-color: #CC0033;
-	opacity: 0.9;
+	width: 6vw;
+	background: rgba(255, 75, 75, 0.8);
+	border-top: 2px solid rgba(175,100,100,0.9);
+	border-bottom: 2px solid rgba(175,100,100,0.9);
+	vertical-align:middle;
+	display: table-cell;
 	cursor: pointer;
 }
-.cartRemove:before{
-	background-color:#000000;
+.cartMinus{
+	background: rgba(150, 50, 50, 0.7);
 	width: 4vw;
-	height: 3vh;
-	margin-left: 1.3vw;
-	content: "strings";
+	height: 10px;
+	margin-left: 0.9vw;
+	vertical-align:middle;
+
 }
-.add{
-	width:80%;
-	height:25%;
-	background-color: purple;
-	position: relative;
-	top:0px;left:0px;
+.cartPlus{
+	background: rgba(100,175,100,0.7);
+	width: 26px;
+	height: 10px;
+	position: relative; top:20px; left:2px;
+	vertical-align:middle;
 }
-.add:after{
-	width:100%;
-	height:25%;
-	background-color: yellow;
-	position: relative;
-	top:0px;left:0px;
+.cartPlus2{
+	background: rgba(100,175,100,0.7);
+	width: 10px;
+	height: 26px;
+	position: relative; top:2px;left:10px;
+	vertical-align:middle;
 }

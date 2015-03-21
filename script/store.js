@@ -1,6 +1,6 @@
-function Store(){
-	this.id;
-	this.store;
+function Store(id,name){
+	this.id = id;
+	this.store = name;
 	this.inventory = [];
 }
 

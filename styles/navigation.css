@@ -5,8 +5,8 @@
 	height:5%;
 	position: relative;
 	display: flex;
-	background-color: pink;
-	border-top:2px solid gray;
+	background-color: silver;
+	border-bottom:2px solid gray;
     position: absolute; top:0px; left:0px;
     z-index: 6;
 }
