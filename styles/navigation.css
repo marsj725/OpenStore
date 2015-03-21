@@ -2,11 +2,23 @@
 	color: white;
 	font-size: 24px;
 	width:100%;
-	height:5%;
+	height:4%;
 	position: relative;
 	display: flex;
-	background-color: silver;
-	border-bottom:2px solid gray;
     position: absolute; top:0px; left:0px;
     z-index: 6;
+}
+.activeField{
+	height: 4vh;
+	background: rgb(255,255,255,0.8);
+
+	color: black;
+
+}
+.inactiveField{
+	height: 4vh;
+	cursor: pointer;
+	border-bottom: 2px solid gray;
+	opacity: 0.7;
+
 }

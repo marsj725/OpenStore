@@ -4,7 +4,7 @@ function setStores(){
 }
 
 function xmlHTTPConnection(system,ticket,data){
-	xmlhttp = new XMLHttpRequest();
+	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var answer = JSON.parse(xmlhttp.responseText);
@@ -30,7 +30,7 @@ function requestData(system,temp){
 		xmlHTTPConnection(system,"hej","korv");
 	}
 	if(temp.operation === "usrvf"){
-		var name = "Hejsan"
+		var name = "Pontus Person"
 		var toReturn = {"status":true,"token":temp.data,"name":name};
 		return toReturn;
 	}
@@ -43,7 +43,7 @@ function sendBasket(system){
 function addStore(system,input){
 	for(var key in input){
 		var obj = input[key];
-		system.sections.addStore(obj.id,obj.name);		
+		system.sections.addStore(obj.id,obj.name,obj.color);		
 	}
 }
 function addItem(system,input){

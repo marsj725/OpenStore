@@ -31,6 +31,8 @@ login.prototype.logout = function(system){
 	system.recipeList.sum = 0;
 
 	system.sections.store = [];
+	system.navigation.position = system.settings.startStore;
+	system.navigation.helpBar = false;
 
 	localStorage.removeItem("token");
 	localStorage.removeItem("user");

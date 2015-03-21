@@ -128,6 +128,7 @@ pageStructure.prototype.buildStore = function(system,store){
 			structure[key] = document.getElementById("item#"+obj.id);
 		}(system));
 	}
+	system.navigation.updateVisual(system);
 	$(document.getElementById("contentLine0")).fadeIn("slow");
 	$(document.getElementById("contentLine1")).fadeIn("slow");
 	return structure;

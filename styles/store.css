@@ -29,7 +29,7 @@ body{
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
-	background-color: #BBFFD1;
+	
 }
 .recipe{
 	width:50%;
@@ -37,8 +37,9 @@ body{
 	overflow: auto;
 	margin-right: 0.01vw;
 	border-right: 1px solid gray;
+	padding-top: 2%;
 	background: rgba(100, 100, 100, 0.5);
-	position: relative; top: 5%;
+	position: relative; top: 4%;
 	height: auto;
 }
 .buy{
@@ -47,7 +48,8 @@ body{
 	overflow: auto;
 	margin-left: 0.01vw;
 	border-left: 1px solid gray;
-	position: relative; top: 5%;
+	padding-top: 2%;
+	position: relative; top: 4%;
 	height: auto;
 }
 .store{

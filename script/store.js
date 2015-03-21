@@ -1,6 +1,7 @@
-function Store(id,name){
+function Store(id,name,color){
 	this.id = id;
 	this.store = name;
+	this.color = color;
 	this.inventory = [];
 }
 
