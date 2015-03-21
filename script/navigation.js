@@ -4,16 +4,16 @@ function navigation(system,x){
 
 }
 navigation.prototype.moveLeft = function(that){
-	if(that.navigation.position>=1){
-		that.navigation.position -=1;
+	if(that.navigation.position < that.sections.store.length-1){
+		that.navigation.position +=1;
 		that.webElements.bar = that.pageStructure.buildStore(that,that.navigation.position);
 		that.navigation.updateVisual(that);
 	}
 };
 
 navigation.prototype.moveRight = function(that){
-	if(that.navigation.position < that.sections.store.length-1){
-		that.navigation.position +=1;
+	if(that.navigation.position >= 1){
+		that.navigation.position -=1;
 		that.webElements.bar = that.pageStructure.buildStore(that,that.navigation.position);
 		that.navigation.updateVisual(that);
 	}
