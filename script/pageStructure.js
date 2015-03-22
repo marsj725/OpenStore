@@ -9,6 +9,7 @@ function pageStructure(has){
 		{"type":"div","parent":"checkout","id":"checkoutBtn","class":"checkoutButton","action":false},
 		{"type":"div","parent":"checkout","id":"clearBtn","class":"clearButton","action":"clearLocal"},
 		{"type":"div","parent":"status","id":"special","class":"special","action":false},
+		{"type":"div","parent":"special","id":"nameField","class":"nameField","action":false},
 		{"type":"div","parent":"status","id":"signOut","class":"signOut","action":"logout"},
 		{"type":"div","parent":"buy","id":"contentLine0","class":"contentLine0","action":false},
 		{"type":"div","parent":"buy","id":"contentLine1","class":"contentLine1","action":false},
@@ -17,8 +18,10 @@ function pageStructure(has){
 	this.loginRaw = [
 		{"type":"div","parent":has.settings.base,"id":"loginField","class":"login","action":false},
 		{"type":"div","subType":"input","parent":"loginField","id":"title","class":"title","action":false},
-		{"type":"input","subType":"input","parent":"loginField","id":"user","class":"field","action":false},
-		{"type":"input","subType":"password","parent":"loginField","id":"paswd","class":"field","action":false},
+		{"type":"div","subType":"input","parent":"loginField","id":"fieldBox1","class":"fieldUser","action":false},
+		{"type":"input","subType":"input","parent":"fieldBox1","id":"user","class":"field","action":false},
+		{"type":"div","subType":"input","parent":"loginField","id":"fieldBox2","class":"fieldPassword","action":false},
+		{"type":"input","subType":"password","parent":"fieldBox2","id":"paswd","class":"field","action":false},
 		{"type":"button","parent":"loginField","id":"submit","class":"button","action":"loginSquence"}
 		];
 }
@@ -103,20 +106,28 @@ pageStructure.prototype.buildStore = function(system,store){
 	$(document.getElementById("contentLine1")).hide();
 	document.getElementById("contentLine0").innerHTML = "";
 	document.getElementById("contentLine1").innerHTML = "";
-	system.webElements.page.sumfield.innerHTML = system.recipeList.sum + " " + system.settings.valueSign;
+	system.webElements.page.sumfield.innerHTML = system.recipeList.sum + " " + system.settings.valuePrefix;
 	var structure = [];
 	var storeObj = system.sections.store[store];
 	for(var key in system.sections.store[store].inventory){
 		(function(that) {
 			var obj = system.sections.store[store].inventory[key];
 			var modulo = key % 2;
-			var tmpElement = document.createElement("div");
-			var tmpInput = document.createTextNode(obj.name);
+			var tmpBase = document.createElement("div");
+			var tmpText = document.createElement("div");
+			var tmpPrice = document.createElement("div");
+			var inputText = document.createTextNode(obj.name);
+			var inputPrice = document.createTextNode(obj.price + system.settings.valuePrefix);
 			var outelement = document.getElementById("contentLine"+modulo);
-			tmpElement.appendChild(tmpInput);
-			tmpElement.setAttribute("id", "item#"+obj.id);
-			tmpElement.setAttribute("class", "cart");
-			tmpElement.addEventListener("click", function(){
+			tmpText.appendChild(inputText);
+			tmpText.setAttribute("class", "cartLabel");
+			tmpBase.appendChild(tmpText);
+			tmpPrice.appendChild(inputPrice);
+			tmpPrice.setAttribute("class", "cartPrice");
+			tmpBase.appendChild(tmpPrice);
+			tmpBase.setAttribute("id", "item#"+obj.id);
+			tmpBase.setAttribute("class", "cart");
+			tmpBase.addEventListener("click", function(){
 				var tmpobj = document.getElementById("item#"+obj.id);
 				$(tmpobj).finish()
 				$(tmpobj).hide();
@@ -124,7 +135,7 @@ pageStructure.prototype.buildStore = function(system,store){
 				that.recipeList.addToList(system,obj.id,obj.name,obj.price);
 				that.recipeList.updateList(that);
 			});
-			outelement.appendChild(tmpElement);
+			outelement.appendChild(tmpBase);
 			structure[key] = document.getElementById("item#"+obj.id);
 		}(system));
 	}

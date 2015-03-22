@@ -1,8 +1,3 @@
-function setStores(){
-	var temp = [{"name":"Öl","id":0},{"name":"Vin","id":1},{"name":"Sprit","id":2}];
-	return temp;
-}
-
 function xmlHTTPConnection(system,ticket,data){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -37,7 +32,7 @@ function requestData(system,temp){
 }
 
 function sendBasket(system){
-	
+	//Todo will send content of recipte list to server!
 }
 
 function addStore(system,input){

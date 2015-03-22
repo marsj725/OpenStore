@@ -29,6 +29,7 @@ navigation.prototype.moveUp = function(system){
 		pageBase.appendChild(tmpElement);
 		system.navigation.helpBar = true;
 		system.exchange.calculateChange(system,system.recipeList.sum);
+		system.exchange.drawExchange(system);
 	}
 };
 navigation.prototype.moveDown = function(that){
@@ -36,6 +37,7 @@ navigation.prototype.moveDown = function(that){
 		var element = document.getElementById("helpBar");
 		element.parentNode.removeChild(element);
 		that.navigation.helpBar = false;
+		that.exchange.payIn = [];
 	}
 };
 

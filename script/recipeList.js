@@ -8,7 +8,7 @@ recipeList.prototype.updateList = function(system){
 		(function(that) {
 			var obj = system.recipeList.list[keyx];
 			var tmpElement = document.createElement("div");
-			var tmpInput = document.createTextNode(obj.name + " " + obj.amount+ "st.");
+			var tmpInput = document.createTextNode(obj.name + " " + obj.amount + system.settings.amountPrefix);
 			tmpElement.setAttribute("id", "listItem#"+obj.id);
 			tmpElement.setAttribute("class", "cartItem");
 			var tmpAdd = document.createElement("div");
@@ -79,6 +79,9 @@ recipeList.prototype.addToList = function(system,id,name,price){
 		system.recipeList.list.push(new basketItem(id,name,1,price));
 	}
 	system.recipeList.checkout(system);
+	if(system.navigation.helpBar){
+		system.exchange.drawExchange(system);
+	}
 };
 
 recipeList.prototype.removeFromList = function(system,id,name,price){
@@ -114,5 +117,5 @@ recipeList.prototype.checkout = function(system){
 		system.exchange.drawExchange(system);
 	}
 	system.recipeList.sum = sum;
-	system.webElements.page.sumfield.innerHTML = sum + " " + system.settings.valueSign;
+	system.webElements.page.sumfield.innerHTML = sum + " " + system.settings.valuePrefix;
 };

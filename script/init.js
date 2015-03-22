@@ -9,9 +9,11 @@ function setSettings(){
 	this.base = "basePage";
 	this.startStore = 0;
 
-
-	this.valueSign = "kr";
+	this.valuePrefix = "kr";
+	this.amountPrefix = "st";
 	this.values = [1000,500,200,100,50,20,10,5,2,1];
+
+	this.backgroundLogo = "../gfx/logo.png";
 }
 
 function init(){

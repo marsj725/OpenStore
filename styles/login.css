@@ -18,13 +18,44 @@
 	width:50%;
 	margin-right: auto;
 	margin-left: auto;
-
 	font-size: 4vw;
 	content: "";
 }
+.fieldUser::before{
+	width:4vw;
+	height: 8vh;
+	display: inline-block;
+	background-image: url("../gfx/icoUser.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: relative; top:1vh;
+	content: "";
+}
+.fieldUser{
+	width:70%;
+	margin-right: auto;
+	margin-left: auto;
+	content: "s";
+}
+.fieldPassword::before{
+	width:4vw;
+	height: 8vh;
+	display: inline-block;
+	background-image: url("../gfx/icoLock.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: relative; top:1vh;
+	content: "";
+}
+.fieldPassword{
+	width:70%;
+	margin-right: auto;
+	margin-left: auto;
+	content: "s";
+}
 .field{
 	height:8vh;
-	width:75%;
+	width:80%;
 	margin-top: 1vh;
 	margin-right: auto;
 	margin-left: auto;

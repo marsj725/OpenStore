@@ -47,6 +47,6 @@ login.prototype.setAccountFromCache = function(system){
 }
 
 login.prototype.outputUser = function(system){
-	system.webElements.page.special.innerHTML = system.account.name;
+	system.webElements.page.nameField.innerHTML = system.account.name;
 	console.log(system.account.name);
 }

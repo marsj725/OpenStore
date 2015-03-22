@@ -5,7 +5,7 @@
     align-items: center;
 	background-color: gray;
     position: absolute; bottom:0px; left:0px;
-
+	background: linear-gradient(to bottom, rgba(80,80,80,.95), rgba(30,30,30,0.9));
     z-index: 5;
 }
 .checkout{
@@ -32,6 +32,23 @@
     position: absolute; bottom:0px; left:50%;
     z-index: 6;
 }
+.nameField::before{
+	width:2vw;
+	height: 4vh;
+	display: inline-block;
+	background-image: url("../gfx/icoUser.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: relative; top:0vh;
+	content: "";
+}
+.nameField{
+	width:50%;
+	height: 4vh;
+	padding-bottom: 0.5vh;
+	margin-left: 0.5vw;
+	border-bottom: 2px dotted white;
+}
 .sumfield{
 	width:70%;
 	height:50%;
@@ -50,26 +67,42 @@
 
 }
 .special{
-	width:50%;
+	width:85%;
 }
 .signOut{
-	width:50%;
-	background-color: darkred;
+	width:15%;
+	height:100%;
+	float: left;
 	cursor: pointer;
+	background-image: url("../gfx/icoPower.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center; 
+	background-color: rgba(200,55,55,0.8);
 }
 .clearButton{
 	width:15%;
 	height:100%;
 	background-color: rgba(200, 25, 25, 0.8);
 	cursor: pointer;
+	background-image: url("../gfx/icoTrash.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center; 
 }
 .valueCalculator{
-	width: 50%;
+	width: 35%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.valueField{
 	display: flex;
 }
 .valueButton{
 	height: 5vh;
-	width: 20vw;
+	width: 15vw;
+	margin-left: 1vw;
 	background-color: pink;
+	cursor: pointer;
 	margin-top: 1vh;
 }
