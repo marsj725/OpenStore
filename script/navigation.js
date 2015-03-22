@@ -37,7 +37,8 @@ navigation.prototype.moveDown = function(that){
 		var element = document.getElementById("helpBar");
 		element.parentNode.removeChild(element);
 		that.navigation.helpBar = false;
-		that.exchange.payIn = [];
+		that.exchange.payIn = {};
+		that.exchange.sum = 0;
 	}
 };
 

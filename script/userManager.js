@@ -29,6 +29,8 @@ login.prototype.logout = function(system){
 	
 	system.recipeList.list = [];
 	system.recipeList.sum = 0;
+	system.exchange.payIn = {};
+	system.exchange.sum = 0;
 
 	system.sections.store = [];
 	system.navigation.position = system.settings.startStore;

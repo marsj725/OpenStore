@@ -25,7 +25,7 @@ function requestData(system,temp){
 		xmlHTTPConnection(system,"hej","korv");
 	}
 	if(temp.operation === "usrvf"){
-		var name = "Pontus Person"
+		var name = "Pontus Persson"
 		var toReturn = {"status":true,"token":temp.data,"name":name};
 		return toReturn;
 	}
