@@ -41,6 +41,7 @@ function generatePage(system){
 
 		var temp = {"operation":"requestStore"};
 		requestData(system,temp);
+		system.account.outputUser(system);
 	}else{
 		system.webElements.login = new system.pageStructure.buildLogin(system);
 	}	
