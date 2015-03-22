@@ -106,7 +106,7 @@ pageStructure.prototype.buildStore = function(system,store){
 	$(document.getElementById("contentLine1")).hide();
 	document.getElementById("contentLine0").innerHTML = "";
 	document.getElementById("contentLine1").innerHTML = "";
-	system.webElements.page.sumfield.innerHTML = system.recipeList.sum + " " + system.settings.valuePrefix;
+	system.webElements.page.sumfield.innerHTML = system.recipeList.sum + " " + system.settings.valueAffix;
 	var structure = [];
 	var storeObj = system.sections.store[store];
 	for(var key in system.sections.store[store].inventory){
@@ -117,7 +117,7 @@ pageStructure.prototype.buildStore = function(system,store){
 			var tmpText = document.createElement("div");
 			var tmpPrice = document.createElement("div");
 			var inputText = document.createTextNode(obj.name);
-			var inputPrice = document.createTextNode(obj.price + system.settings.valuePrefix);
+			var inputPrice = document.createTextNode(obj.price + system.settings.valueAffix);
 			var outelement = document.getElementById("contentLine"+modulo);
 			tmpText.appendChild(inputText);
 			tmpText.setAttribute("class", "cartLabel");

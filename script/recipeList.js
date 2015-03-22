@@ -8,7 +8,7 @@ recipeList.prototype.updateList = function(system){
 		(function(that) {
 			var obj = system.recipeList.list[keyx];
 			var tmpElement = document.createElement("div");
-			var tmpInput = document.createTextNode(obj.name + " " + obj.amount + system.settings.amountPrefix);
+			var tmpInput = document.createTextNode(obj.name + " " + obj.amount + system.settings.amountAffix);
 			tmpElement.setAttribute("id", "listItem#"+obj.id);
 			tmpElement.setAttribute("class", "cartItem");
 			var tmpAdd = document.createElement("div");
@@ -117,5 +117,5 @@ recipeList.prototype.checkout = function(system){
 		system.exchange.drawExchange(system);
 	}
 	system.recipeList.sum = sum;
-	system.webElements.page.sumfield.innerHTML = sum + " " + system.settings.valuePrefix;
+	system.webElements.page.sumfield.innerHTML = sum + " " + system.settings.valueAffix;
 };
